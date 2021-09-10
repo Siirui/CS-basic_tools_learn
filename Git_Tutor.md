@@ -6,7 +6,7 @@
 
 ## Command
 
-1. init a repo
+1. Initiate a repo
 
    ```
    $ git init
@@ -58,9 +58,9 @@
    $ rm <file>	#remove the file from Working Directory
    
    $ git rm <file> 
-   $	git commit -m "message"	#remove the file from the Stage
+   $ git commit -m "message"	#remove the file from the Stage
    
-   $	git checkout -- <file> #undo any file back to the Working Directory from Stage 
+   $ git checkout -- <file> #undo any file back to the Working Directory from Stage 
    ```
 
 8. Create new repo(Github)
@@ -83,5 +83,73 @@
     ```
     $ git clone https://...
     ```
+
+11. Create and switch to a branch
+
+    ```
+    $ git checkout -b <branch_name>	#create and switch to new branch
+    
+    $ git branch <branch_name> 		#create a new branch
+    $ git checkout <branch_name>	#switch to a new branch
+    
+    $ git switch -c <branch_name>	#create and switch to new branch with command "switch"
+    $ git switch <branch_name>		#switch to branch
+    ```
+
+12. Check out branches
+
+    ```
+    $ git branch
+    #branch with "*" is the temperate branch and all the modify is dued on this branch
+    ```
+
+13. Merge branches
+
+    ```
+    $ git merge branch_name		 	#merge the branch to the temperate one
+    ```
+
+14. Delete branch
+
+    ```
+    $ git branch -d branch_name
+    ```
+
+15. Solve conflicts
+
+    ```
+    # Must modify the files to solve the conflicts manually
+    $ git log --graph		#display the graph of merging branches
+    ```
+
+16. Strategy of branches
+
+    ```
+    # The master branch must be stable, only used for release new versions.
+    # It is recommanded to work on other branches and finally merge to the master branch.
+    
+    $ git merge --no-ff -m "message" <branch_name>		# disable the mode of Fast forward, so that git will generate a new commit during merging.
+    ```
+
+17. Fix bugs
+
+    ```
+    $ git stash				#save the temperate Working Directory
+    
+    # It is recommanded to fix the bugs in a new branch
+    
+    $ git stash list 	#check the stash
+    
+    $ git stash apply #restore the working directory
+    $ git stash drop 	#clean the stash
+    
+    $ git stash pop 	#restore the working directory and clean the stash
+    
+    $ git stash apply stash@{number} #restore specific stash
+    
+    $ git cherry-pick <commit_id>	#copy the modify into the temperate branch
+    ```
+
+    
 
     
