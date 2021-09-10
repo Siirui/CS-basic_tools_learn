@@ -63,4 +63,25 @@
    $	git checkout -- <file> #undo any file back to the Working Directory from Stage 
    ```
 
-   
+8. Create new repo(Github)
+
+   ```
+   $ git remote add origin www...
+   $ git push -u origin master		#first time
+   $ git push origin master
+   ```
+
+9. Delete remote repo
+
+   ```
+   $ git remote -v			#check the detail of remote repo
+   $ git remote rm	origin	#unbound the relation between local and remote
+   ```
+
+10. Clone a remote repo
+
+    ```
+    $ git clone https://...
+    ```
+
+    
