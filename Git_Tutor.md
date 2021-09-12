@@ -99,8 +99,8 @@
 12. Check out branches
 
     ```
-    $ git branch
-    #branch with "*" is the temperate branch and all the modify is dued on this branch
+    $ git branch 		# Branch with "*" is the temperate branch and all the modify is dued on this branch
+    $ git branch -r		# Check the remote branches
     ```
 
 13. Merge branches
@@ -155,6 +155,16 @@
     ```
     # It is recommanded to make a new branch to explore new feature.
     $ git branch -D <branch_name>	# Strictly delete the branch without merged
+    ```
+
+19. Team work
+
+    ```bran
+    $ git remote -v 				# Check the information of remote repo
+    $ git push origin <branch_name> # Push the local branch to the remoter
+    $ git pull						# If the push failed, try to pull the files and merge first
+    $ git checkout -b <branch_name> origin/<branch_name> # Create a local branch corresponded to remote
+    $ git branch --set-upstream <branch_name> origin/<branch_name>	# Make the relation bewteen local and remote
     ```
 
     
