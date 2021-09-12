@@ -150,6 +150,11 @@
     $ git cherry-pick <commit_id>	#copy the modify into the temperate branch
     ```
 
-    
+18. Feature branch
+
+    ```
+    # It is recommanded to make a new branch to explore new feature.
+    $ git branch -D <branch_name>	# Strictly delete the branch without merged
+    ```
 
     
