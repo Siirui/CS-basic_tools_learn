@@ -91,13 +91,13 @@
 
 10. Delete remote repo
 
-   ```
-   # Check the details of remote repo.
-   $ git remote -v	
-   
-   # Unbound the relation between local and remote.
-   $ git remote rm	origin	
-   ```
+    ```
+    # Check the details of remote repo.
+    $ git remote -v	
+    
+    # Unbound the relation between local and remote.
+    $ git remote rm	origin	
+    ```
 
 11. Clone a remote repo
 
@@ -224,7 +224,7 @@
     $ git branch --set-upstream <branch_name> origin/<branch_name>	
     ```
 
-25.  Add tag
+25. Add tag
 
     ```
     $ git tag <tag_name> [commit_id]
