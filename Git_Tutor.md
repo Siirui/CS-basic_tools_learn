@@ -265,5 +265,12 @@
     $ git push origin --tags		
     ```
 
+30. Fork a repo in Github
+    ```
+    1st.Fork the repo
+    2nd.Clone the repo in self directory
+    3rd.Back to the base repo clone the SSH 
+    $ git remote add <name> <SSH>
+    ```
     
 
