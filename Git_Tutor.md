@@ -272,6 +272,3 @@
     3rd.Back to the base repo clone the SSH 
     $ git remote add <name> <SSH>
     ```
-
-test
-
