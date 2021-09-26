@@ -1,0 +1,323 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\pagestyle{headings}
+\author{Rui Sun}
+\title{Minimalism}
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Start}
+I read that Knuth divides the
+people working with \TeX{} into
+\TeX{}nicians and \TeX perts.\\
+Today is \today
+
+%Example1
+\ldots when Einstein introduced his formula
+\begin{equation}
+    e = m \cdot c^2 \; ,
+\end{equation}
+which is at the same time the most widely known 
+and the least well understood physical formula.
+
+%\section{Example2}
+\ldots from which follows Kirchoff's current law
+\begin{equation}
+    \sum_{k=1}^{n} I_k = 0\; .
+\end{equation}
+Kirchoff's voltage law can be derived \ldots
+
+%\section{Example3}
+\ldots which has several advantages.
+
+\begin{equation}
+    I_D = I_F - I_R
+\end{equation}
+is the core of a very different transistor model. \ldots
+
+shelfful\\
+shelf\mbox{}ful \\
+Mr.~Smith was happy to see her\\
+cf.~Fig.~5\\
+I like BASIC\@. What about you?\\
+
+Footnotes\footnote{This 
+is a footnote.} are often understood
+by people using \LaTeX.
+
+\emph{If you use emphasizing 
+inside a piece of emphasized text, 
+then \LaTeX{} uses the \emph{normal} font for emphasizing.}
+
+\section{Document Layout}
+\subsection{Emphasized}
+\textit{You can also 
+\emph{emphasized} text if 
+it is set in italic,}
+\textsf{in a 
+\emph{sans-serif} font,}
+\texttt{or in
+\emph{typewriter} style.}
+
+\subsection{Environment}
+\subsubsection{Itemize, Enumerate, and Description}
+\flushleft
+\begin{enumerate}
+    \item You can mix the list
+environment to your taste:
+    \begin{itemize}
+        \item But it might start to
+    look silly.
+        \item[-] With a dash. 
+    \end{itemize} 
+    \item Therefore remember: 
+    \begin{description}
+        \item[Stupid] things will not become smart because they are in a list 
+        \item[Smart] things, though, can be presented beautifully in a list.
+    \end{description}
+\end{enumerate}
+\subsubsection{Flushleft, Flushright, and Center}
+\begin{flushleft}
+    This text is\\ left-aligned.
+    \LaTeX{} is not trying to make each line
+    the same length.
+\end{flushleft}
+
+\begin{flushright}
+    This text is right-\\aligned.
+    \LaTeX{} is not trying to make each
+    line the same length.
+\end{flushright}
+
+\begin{center}
+    At the center\\of the earth.
+\end{center}
+
+This text is default.\\
+\LaTeX{} is not trying to make each line
+the same length.
+
+\subsubsection{Quote, Quotation, and Verse}
+A typographical rule of thumb
+for the line length is:
+\begin{quote}
+    On average, no line should
+    be longer than 66 characters.
+\end{quote}
+This is why \LaTeX{} pages have such large borders
+by default and also why multicolumn print is used in
+newspaper.
+
+
+I know only one English poem by heart.
+It is about Humpty Dumpty.
+\begin{flushleft}
+    \begin{verse}
+        Humpty Dumpty sat on a wall:\\
+        Humpty Dumpty had a great fall.\\
+        All the King's horses and all the
+        King's men\\
+        Couldn't put Humpty together again.
+    \end{verse}
+\end{flushleft}
+\subsubsection{Print words by words}
+The \verb|\ldots| command \ldots
+\begin{verbatim}
+    10 PRINT "HELLO WORLD" ;
+    20 GOTO 10
+\end{verbatim}
+
+\begin{verbatim*}
+    the starred version of 
+    the     verbatim
+    environment emphasizes
+    the spaces in the text
+\end{verbatim*}
+\subsubsection{Table}
+\begin{tabular}{|r|l|}
+    \hline
+    7C0 & hexadecimal \\
+    3700 & octal \\ \cline{2-2}
+    11111000000 & binary \\
+    \hline \hline1984 & decimal \\
+    \hline
+\end{tabular}
+
+\begin{tabular}{|p{4.7cm}|}
+    \hline
+    Welcome to Boxy's paragraph.
+    We sincerely hope you'll
+    all enjoy the show.\\
+    \hline
+\end{tabular}
+\begin{tabular}{@{} l @{}}
+    \hline
+    no leading space\\
+    \hline
+\end{tabular}
+\begin{tabular}{l}
+    \hline
+    leading space left and right\\
+    \hline
+\end{tabular}
+\begin{tabular}{c r @{.} l}
+    Pi expression &
+    \multicolumn{2}{c}{Value} \\
+    \hline
+    $\pi$               & 3&1416    \\
+    $\pi^{\pi}$         & 36&46     \\
+    $\pi^{\pi^{\pi}}$   & 80662&7   \\
+\end{tabular}
+\begin{tabular}{|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{Ene} \\
+    \hline
+    Mene & Muh! \\
+    \hline
+\end{tabular}
+\subsection{Protect Command}
+\subsection{I am considerate
+\protect\footnote{and protect my footnotes}}
+
+\section{Mathematics}
+\subsection{Basic Knowledge}
+Add $a$ squared and $b$ squared to get
+$c$ squared. Or, using a more mathematical
+approach: $c^2=a^2+b^2$ \\
+\TeX{} is pronounced as $\tau\epsilon\chi$. \\[6pt]
+100~m$^{3}$ of water\\[6pt]
+This comes from my $\heartsuit$\\
+Add $a$ squared and $b$ squared to get $c$ squared.
+Or, using a more mathematical approach:
+\begin{displaymath}
+    c^2=a^2+b^2
+\end{displaymath}
+And just one more line.\\
+\begin{equation}
+    \label{eq:eps}
+    \epsilon > 0    
+\end{equation}
+From (\ref{eq:eps}), we gather \ldots\\
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+$
+\begin{displaymath}
+    \lim_{n \to \infty}
+    \sum_{k=1}^n\frac{1}{k^2}
+    = \frac{\pi^2}{6}
+\end{displaymath}
+\begin{equation}
+    \forall x \in \mathbf{R}:
+    \qquad x^2 \geq 0
+\end{equation}
+\begin{equation}
+    x^2 \geq 0\qquad
+    \textrm{for all }x \in \mathbf{R}
+\end{equation}
+\begin{displaymath}
+    x^2 \geq 0 \qquad
+    \textrm{for all } x \in \mathbb{R}
+\end{displaymath}
+\subsection{Groups}
+\begin{equation}
+    a^x+y \neq a^{x+y}
+\end{equation}
+\subsection{Set mathematical formula module}
+$\lambda, \xi, \pi, \mu, \Phi, \Omega, \alpha$ \\
+$a_{1}$ \qquad $x^{2}$ \qquad
+$e^{-\alpha t}$ \qquad
+$a^{3}_{ij}$ \\
+$e^{x^2} \neq ({e^x})^2 $
+$\sqrt{x}$ \qquad
+$\sqrt{x^{2}+\sqrt{y}}$
+\qquad $\sqrt[3]{2}$\\[3pt]
+$\surd[x^2 + y^2]$\\
+$\overline{m+n}$ \qquad
+$\underline{m+n}$\\
+$\underbrace{a+b+\cdots+z}_{26}$\\
+\begin{displaymath}
+    y=x^2 \qquad y'=2x\qquad y''=2
+\end{displaymath}
+\begin{displaymath}
+    \vec a\quad\overrightarrow{AB}
+\end{displaymath}
+\begin{displaymath}
+    v={\sigma}_1 \cdot {\sigma}_2{\tau}_1\cdot{\tau}_2
+\end{displaymath}
+\[\lim_{x\to0}\frac{\sin x}{x}=1
+    \]
+\begin{displaymath}
+    {n \choose k} \qquad {x \atop y+2} \qquad
+    \int f_N(x) \stackrel{!}{=} 1 \qquad 
+    {a,b,c} \neq \{a,b,c\}
+\end{displaymath} 
+\begin{displaymath}
+    1 + \left( \frac{1}{1-x^2}
+    \right) ^ 3
+\end{displaymath}
+\begin{displaymath}
+    \Big((x+1)(x-1)\Big) ^ 2 \qquad
+    \big(\Big(\bigg(\Bigg(\Bigg)\bigg)\Big)\big)
+\end{displaymath}
+\subsection{Math White Space}
+\newcommand{\ud}{\mathrm{d}}
+\begin{displaymath}
+    \int\!\!\!\int_{D} g(x,y)
+    \, \ud x\, \ud y
+\end{displaymath}
+instead of
+\begin{displaymath}
+    \int\int_{D} g(x,y)\ud x\ud y \qquad
+    \iint 
+\end{displaymath}
+\subsection{Vertically Aligned}
+\begin{displaymath}
+    \mathbf{X} =
+    \left(
+        \begin{array}{ccc}
+            x_{11} & x_{12} & \ldots \\
+            x_{21} & x_{22} & \ldots \\
+            \vdots & \vdots & \ddots
+        \end{array}
+    \right)
+\end{displaymath}
+\begin{displaymath}
+    y = \left\{
+        \begin{array}{ll}
+            a   &   \textrm{if $d > c$}\\
+            b+x &   \textrm{in the morning} \\
+            l   &   \textrm{all day long}
+        \end{array}
+        \right.
+\end{displaymath}
+\begin{displaymath}
+    \left(
+        \begin{array}{c|c}
+            1 & 2 \\
+            \hline
+            3 & 4
+        \end{array}
+    \right)
+\end{displaymath}
+\begin{eqnarray}
+    f(x)    &=& \cos x \\
+    f'(x)   &=& -\sin x\\
+    \int_{0}^{x} f(y)\ud y &=& \sin x
+\end{eqnarray}
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+    \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!}-{}
+    \nonumber \\
+    & & {}-\frac{x^7}{7!}+{}\cdots
+\end{eqnarray}
+}
+\begin{eqnarray}
+    \lefteqn{
+        \cos x =1-\frac{x^2}{2!}+{}}
+        \nonumber\\
+        & &{}+\frac{x^4}{4!}-\frac{x^6}{6!}+{}\cdots
+\end{eqnarray}
+\end{document}
+
