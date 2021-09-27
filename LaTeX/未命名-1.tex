@@ -1,6 +1,11 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{makeidx}
+\makeindex
+\newtheorem{law}{Law}
+\newtheorem{mur}{Murphy}[subsection]
+\newtheorem{jury}[law]{Jury}
 \pagestyle{headings}
 \author{Rui Sun}
 \title{Minimalism}
@@ -319,5 +324,166 @@ instead of
         \nonumber\\
         & &{}+\frac{x^4}{4!}-\frac{x^6}{6!}+{}\cdots
 \end{eqnarray}
+
+\subsection{Phatom}
+\begin{displaymath}
+    {}^{12}_{\phantom{1}6}\textrm{C}
+    \qquad \textrm{versus}  \qquad
+    {}^{12}_{6}\textrm{C}
+\end{displaymath}
+\begin{displaymath}
+    \Gamma_{ij}^{\phantom{ij}k}
+    \qquad \textrm{versus} \qquad
+    \Gamma_{ij}^k
+\end{displaymath}
+
+\subsection{Math Font} 
+\begin{equation}
+    2^{\textrm{nd}} \quad
+    2^{\mathrm{nd}} 
+\end{equation}
+
+\begin{displaymath}
+    \mathop{\mathrm{corr}}(X,Y)=
+    \frac{\displaystyle
+        \sum^{n}_{i=1}(x_i-\overline{x})(y_i-\overline{y})}
+    {\displaystyle\biggl[\sum_{i=1}^n (x_i - \overline{x})^2
+    \sum_{i=1}^n (y_i - \overline{y})^2
+    \biggr]^{1/2}}
+\end{displaymath}
+
+\subsection{Definition}
+\begin{law} \label{law:box}
+    Dont' hide in the witness box
+\end{law}
+
+\begin{jury}[The Twelve]
+It could by you! So beware and
+see law~\ref{law:box}
+\end{jury}
+\begin{law}No, No, No\end{law}
+
+\begin{flushleft}
+    \begin{mur}
+        If there are two or more
+        ways to do something, and one
+        of those ways can result in a catastrophe
+        , then someone will do it.
+    \end{mur}
+\end{flushleft}
+
+\subsection{Bold Symbols}
+
+\begin{displaymath}
+    \mu, M \qquad \mathbf{M} \qquad
+    \mbox{\boldmath $\mu, M$}
+\end{displaymath}
+
+\begin{displaymath}
+    \mu, M \qquad
+    \boldsymbol{\mu}, \boldsymbol{M}
+\end{displaymath}
+
+\section{Special Function}
+\subsection{Bibliography}
+Part1~\cite{pa} has
+proposed that \ldots
+\begin{thebibliography}{99}
+    \bibitem{pa} H.~Part1:
+    \emph{German\TeX}
+    TUGboat Volume~9, Issue~1 (1998)
+\end{thebibliography}
+\subsection{Index}
+\index{hello}
+\section{DIY LaTeX}
+\subsection{Set up new command/environment/package}
+\subsubsection{Set up new command}
+\newcommand{\tnss}{The not
+so Short Introduction to \LaTeX}
+This is ''\tnss'' \ldots{} ''\tnss''
+\newcommand{\txsit}[1]
+{
+    This is the \emph{#1} Short
+    Introduction to \LaTeX}
+\begin{itemize}
+    \item \txsit{not so}
+    \item \txsit{very}
+\end{itemize}
+
+\subsubsection{Set up new environment}
+\newenvironment{king}
+{
+    \rule{1ex}{1ex}%
+    \hspace{\stretch{1}}
+}
+{
+    \hspace{\stretch{1}}%
+    \rule{1ex}{1ex}
+}
+\begin{king}
+    My humble subjects \ldots
+\end{king}
+\subsubsection{Set up new package}
+\subsection{Font and Size}
+\subsubsection{Font Transform commands}
+{
+    \small The small and
+    \textbf{bold} Romans ruled
+}
+{
+    \Large all of great big
+    \textit{Italy}.
+}\\
+
+He likes
+{
+  \Large large and \small small  
+} letters.
+\begin{Large}
+    This is not true.
+    But then again, what is these
+    days \ldots
+\end{Large}
+\subsection{Seperators Between Objects}
+\subsubsection{Row Distance}
+\subsubsection{Paragraph}
+\subsubsection{Surface Distance}
+This is \hspace{1.5cm} a white space with 1.5cm.\\
+x\hspace{\stretch{1}}
+x\hspace{\stretch{3}}x
+\subsubsection{Vertical Distance}
+\subsection{More Details of Length}
+\begin{flushleft}
+    \newenvironment{vardesc}[1]{
+        \settowidth{\parindent}{#1: \ }
+        \makebox[0pt][r]{#1: \ }}{}
+    \begin{displaymath}
+        a^2+b^2=c^2
+    \end{displaymath}
+    \begin{vardesc}{Where}$a$,
+    $b$ -- are adjunct to the right angle of a 
+    right-angled triangle.
+
+    $c$ -- is the hypotenuse of the triangle
+    and feels lonely.
+
+    $d$ -- finally does not show up here
+    at all. Isn't that puzzling?
+    \end{vardesc}
+\end{flushleft}
+\subsection{Box}
+\makebox[\textwidth]{
+    c e n t r a l
+}\par
+\makebox[\textwidth][s]{
+    s p r e a d
+}\par
+\framebox[1.1\width] {
+    Guess I'm framed now!
+}\par
+\framebox[0.8\width][r]{Bummer, 
+I am too wide} \par
+\framebox[1cm][l]{never mind, so am I}
+Can you read this?
 \end{document}
 

@@ -1,0 +1,470 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{makeidx}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage[UTF8]{ctex} % 显示中文
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\paragraphmark}[1]{\markboth{#1}{}}
+\fancyhf{}
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\addtolength{\headheight}{0.5pt}
+\fancypagestyle{plain}{
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\newtheorem{law}{Law}[section]
+
+\makeindex
+\author{Rui Sun}
+\title{\LaTeX{} Tutorial}
+
+\usepackage{xcolor}
+\lstset{
+  language=C++,  %代码语言使用的是matlab
+  frame=shadowbox, %把代码用带有阴影的框圈起来
+  rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
+  keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
+  commentstyle=\color{red!10!green!70}\textit,    % 设置代码注释的颜色
+  showstringspaces=false,%不显示代码字符串中间的空格标记
+  numbers=left, % 显示行号
+  numberstyle=\tiny,    % 行号字体
+  stringstyle=\ttfamily, % 代码字符串的特殊格式
+  breaklines=true, %对过长的代码自动换行
+  extendedchars=false,  %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+%   escapebegin=\begin{CJK*},escapeend=\end{CJK*},      % 代码中出现中文必须加上，不然报错
+  texcl=true}
+%-----------------------------
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Elementary Knowledge}
+\subsection{Source Code}
+
+\subsubsection{Space}
+\begin{itemize}
+    \item Continuous space characters
+    are considered as one space character.
+    \item The space characters at the beginning
+    of each line will be ignored.
+    \item Single LF(Line Feed) will be considered as
+    a space.  
+    \item \LaTeX{} uses empty line to end the paragraph.
+    \item Multiple LF will be considered as one LF. 
+\end{itemize}
+
+\subsubsection{Special Characters}
+These characters are special characters in \LaTeX{},
+which are commonly used for special functions.
+If want to display these characters, you should add $\backslash$ before characters. \\
+\# \; \$ \; \% \; \^ \; \& \; \_ \; \{ \; \} \; 
+\~ \; $\backslash$ \\
+\emph{$\backslash\backslash$ is used to end the line.}
+\footnote{\$$\backslash$backslash\$ will generate $\backslash$.}
+
+\subsubsection{\LaTeX{} Commands}
+\begin{itemize}
+    \item Commands is case- sensitive.
+    \item \LaTeX{} ignores the space behind the commands.
+    If you want to add space behind the commands, you can 
+    add \{\} and a space behind the commands. 
+\end{itemize}
+
+\subsubsection{Annotation}
+\LaTeX{} will ignore all the context
+behind \%
+
+\section{Document Typesetting}
+\subsection{Tokenize in words}
+Command \framebox{$\backslash$mbox\{text\}} 
+ensures to set multiple words on the same line.
+\subsection{Special Characters}
+
+\subsubsection{Dash and Hyphen}
+\begin{itemize}
+    \item -  : hyphen(one)
+    \item -- :  short dash(two)
+    \item --- : long dash(three)
+\end{itemize}
+
+\subsubsection{Tilde}
+\begin{itemize}
+    \item \~{} : \framebox{$\backslash$ \~{}}
+    \item $\sim$ : \framebox{\$$\backslash$sim\$}
+\end{itemize}
+
+\subsubsection{Angle}
+\begin{itemize}
+    \item $^{\circ}\mathrm{C}$ : \framebox{
+    \$\;\^\;\{$\backslash$ circ\}}
+\end{itemize}
+
+\subsubsection{Ellipsis}
+\begin{itemize}
+    \item \ldots{} : \framebox{
+    $\backslash$ldots} 
+\end{itemize}
+
+\subsection{Words' Seperator}
+\begin{itemize}
+    \item The backslash before the space can
+    generate a non-extended space 
+    \item \~{} can generate a non-extended space
+    and forbid newline
+    \item \framebox{$\backslash$@} before period
+    indicates the period is the end of sentence.
+\end{itemize}
+
+\subsection{Cross Quotation}
+\framebox{$\backslash$label\{\emph{marker}\},
+$\backslash$ref\{\emph{marker}\},
+$\backslash$pageref\{\emph{marker}\}
+}\\
+A reference to this subsection \label{sec:this}
+looks like: "see section~\ref{sec:this} on
+page~\pageref{sec:this}."
+
+\subsection{Footnote}
+\framebox{$\backslash$footnote\{
+    \emph{footnote text} \}
+}
+
+\subsection{Emphasize}
+
+\begin{itemize}
+    \item \underline{underline}{} : \framebox{$\backslash$underline\{\emph{text}\}}
+    \item \emph{emphasize}{} : \framebox{$\backslash$emph\{\emph{text}\}}
+\end{itemize}
+
+\subsection{Environment}
+\framebox{$\backslash$begin\{\emph{environment}\} 
+    \; \emph{text} \; 
+    $\backslash$end\{\emph{environment}\} 
+}
+
+\subsubsection{Itemize, Enumerate, and Description}
+\begin{itemize}
+    \item itemize : set up simple list
+    \item enumerate : set up list with index
+    \item description : set up list with description
+\end{itemize}
+
+\subsubsection{Flushleft, Flushright, and Center}
+\begin{itemize}
+    \item Flushleft : generate a paragraph arranged to the left
+    \item Flushright :  generate a paragraph arranged to the right
+    \item center : generate a paragraph arranged to the center.
+\end{itemize}
+
+\subsubsection{Quote, Quotation, and Verse}
+\begin{itemize}
+    \item quote : to quote phrase or examples
+    \item quotation : to quote long paragraph
+    \item verse : to quote poems 
+\end{itemize}
+
+\subsubsection{Table}
+\framebox{$\backslash$begin\{tabular\}\{\emph{table spec}\}}
+\emph{table spec}{} : \\
+\begin{itemize}
+    \item l : to generate a column arranged to the left
+    \item r : to generate a column arranged to the right
+    \item c : to generate a column arranged to the center
+    \item | : to generate a plumb line
+    \item p\{\emph{width}\}{} : to generate a column with specific width
+\end{itemize}
+In tabular environment, use \framebox{\&} to jump to next column; use
+\framebox{$\backslash\backslash$} to start a new row; use \framebox{$\backslash$hline} to insert horizontal lines;
+use \framebox{$\backslash$cline\{i-j\}} to insert part of horizontal line(i, j represent
+the index of start column and end of column).
+
+\section{Mathematics Formula}
+\subsection{Elementary Knowledge}
+It is supposed to set mathematics 
+expression like :
+\begin{itemize}
+    \item \framebox{
+        $\backslash$ (expression $\backslash$)}
+    \item \framebox{\$ expression \$}
+    \item \framebox{
+        $\backslash$ begin\{math\}
+        expression
+        $\backslash$ end\{math\}}  
+\end{itemize}
+For large expression, it is suggested to use \emph{display} mode, like :
+\begin{itemize}
+    \item \framebox{
+        $\backslash$ [
+        expression
+        $\backslash$ ]}
+    \item \framebox{
+        $\backslash$ begin\{displaymath\}
+        expression
+        $\backslash$ end\{diplaymath\}}  
+\end{itemize}
+However, this environment has no index. 
+To append index for formula, you can use \emph{equation} environment. \\
+There are differences between \emph{mathematics mode} between \emph{text mode}. In mathematics mode
+\begin{enumerate}
+    \item Space and FL will be ignored, space is instead by commands like
+    \framebox{$\backslash$,}\;,\;\framebox{$\backslash$quad}
+    or \framebox{$\backslash$qquad}.
+    \item Empty line is forbidden. Each formula must belongs to only one paragraph.
+    \item Every character will be considered as a variable name. 
+    If you want to add normal text, you must use command 
+    \framebox{$\backslash$textrm\{\emph{text}\}} to input text.
+\end{enumerate}
+Commonly, it is suggested to use blackboard bold to represent the set of 
+real numbers. Use command \framebox{$\backslash$mathbb} to use this fonts.
+
+\subsection{Commands}
+
+\subsubsection{Greek letters}
+Lowercase Greek letters : 
+\framebox{$\backslash$alpha, 
+$\backslash$beta,
+$\backslash$gamma}{} , \ldots \\
+\indent
+Oppositely, to get Uppercase Greek letters :
+Lowercase Greek letters : 
+\framebox{$\backslash$Gamma, 
+$\backslash$Delta,
+$\backslash$Gamma}{} , \ldots 
+
+\subsubsection{Square Root}
+\begin{itemize}
+    \item $\sqrt x$ : \framebox{$\backslash$sqrt x}
+    \item $\sqrt[n] x$ : \framebox{
+        $\backslash$sqrt[n] x
+    }
+    \item $\surd$ : \framebox{$\backslash$surd}
+\end{itemize}
+
+\subsubsection{Horizontal Line}
+\begin{itemize}
+    \item $\overline{m+n}$ : \framebox{
+        $\backslash$overline\{m+n\}
+    }
+    \item $\underline{m+n}$ : \framebox{
+        $\backslash$underline\{m+n\}
+    }
+    \item $\overbrace{a+b+\cdots+z}^{26}$ : \framebox{
+        $\backslash$overbrace\{\ldots\}\;\^\;\{\ldots\}
+    }
+    \item $\underbrace{a+b+\cdots+z}_{26}$ : \framebox{
+        $\backslash$underbrace\{\ldots\}\_\{\ldots\}
+    }
+\end{itemize}
+
+\subsubsection{Arrow} 
+\begin{itemize}
+    \item $\vec a$ : \framebox{
+        $\backslash$vec a
+    }
+    \item $\overleftarrow{AB}$ : \framebox{
+        $\backslash$overleftarrow\{AB\}
+    }
+    \item $\overrightarrow{AB}$ : \framebox{
+        $\backslash$overrightarrow\{AB\}
+    }
+\end{itemize}
+
+\subsubsection{Binomial}
+\begin{itemize}
+    \item ${n \choose k}$ : \framebox{
+        \{\ldots\;$\backslash$choose\;\ldots\}
+    }
+    \item ${n \atop k}$ : \framebox{
+        \{\ldots\;$\backslash$atop\;\ldots\}
+    }
+\end{itemize}
+
+\subsubsection{Binary Relationship}
+\begin{itemize}
+    \item $\stackrel{!}{=}$ : \framebox{
+        $\backslash$stackrel\{!\}\{=\}
+    }
+\end{itemize}
+
+\subsubsection{Brace Size} 
+\begin{itemize}
+    \item $\big(\Big(\bigg(\Bigg($ : \framebox{
+        $\backslash$big(
+        $\backslash$Big(
+        $\backslash$bigg(
+        $\backslash$Bigg(
+    }
+    \item $\big\}\Big\}\bigg\}\Bigg\}$ : \framebox{
+        $\backslash$big\}
+        $\backslash$Big\}
+        $\backslash$bigg\}
+        $\backslash$Bigg\}
+    }
+\end{itemize}
+
+\subsubsection{Dots}
+\begin{itemize}
+    \item \ldots{} : \framebox{
+        $\backslash$ldots
+    }
+    \item $\cdots$ : \framebox{
+        $\backslash$cdots
+    }
+    \item $\vdots$ : \framebox{
+        $\backslash$vdots
+    }
+    \item $\ddots$ : \framebox{
+        $\backslash$ddots
+    }
+\end{itemize}
+
+\subsection{Space} 
+\begin{itemize}
+    \item $\backslash$, : $\frac{3}{18}$quad\verb*| |
+    \item $\backslash$: : $\frac{4}{18}$quad\verb*| |
+    \item $\backslash$; : $\frac{5}{18}$quad\verb*| |
+    \item $\backslash$\verb*| |: $\frac{1}{2}$quad\verb*| |
+    \item $\backslash$quad : quad\verb*| |
+    \item $\backslash$qquad : 2quad\verb*| |
+\end{itemize}
+
+\subsection{Vertical Alignment}
+\subsubsection{Arrays}
+\begin{itemize}
+    \item $
+        =\left( \begin{array}{ccc}
+            x_{11} & x_{12} & \ldots \\
+            x_{21} & x_{22} & \ldots \\
+            \vdots & \vdots & \ddots
+        \end{array}\right)
+    $ 
+    : \; \parbox{\textwidth}{
+            =$\backslash$left( $\backslash$begin\{array\}\{ccc\} \par
+            x\_\{11\} \& x\_\{12\} \& $\backslash$ldots $\backslash\backslash$ \par
+            x\_\{21\} \& x\_\{22\} \& $\backslash$ldots $\backslash\backslash$ \par
+            $\backslash$vdots \& $\backslash$vodts \& $\backslash$ddots \par
+            $\backslash$end\{array\}$\backslash$right)
+        }
+        \\
+        \\
+    \item $
+        =\left\{ \begin{array}{ll}
+            a & \textrm{\ldots} \\
+            b+x & \textrm{\ldots} \\
+            l & \textrm{\ldots}
+        \end{array}
+        \right.
+    $
+    : \;\;\;\;\;\;\;\;\; \parbox{\textwidth}{
+            =$\backslash$left$\backslash$\{ $\backslash$begin\{array\}\{ll\} \par
+            a \& $\backslash$textrm\{$\backslash$ldots\} $\backslash\backslash$ \\
+            b+x \& $\backslash$textrm\{$\backslash$ldots\} $\backslash\backslash$ \\
+            l \& $\backslash$textrm\{$\backslash$ldots\} $\backslash\backslash$ \\
+            $\backslash$end\{array\}$\backslash$right.
+    }
+    \\
+    \\
+    \item $
+        \left(\begin{array}{c|c}
+            1 & 2 \\
+            \hline
+            3 & 4
+        \end{array}
+        \right)
+    $
+    : \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \parbox{\textwidth}{
+        =$\backslash$left( $\backslash$begin\{array\}\{c|c\} \par
+        1 \& 2 $\backslash\backslash$ \\
+        $\backslash$hline \\
+        3 \& 4 $\backslash\backslash$ \\
+        $\backslash$end\{array\}$\backslash$right)
+    }
+\end{itemize}
+
+\subsubsection{Equations}
+\begin{eqnarray}
+    f(x) & = & \cos x \\
+    f'(x) & = & -\sin x \\
+    \int_{0}^x f(y)dy & = & \sin x
+\end{eqnarray}
+{\setlength\arraycolsep{2pt}
+    \begin{eqnarray}
+        \sin x & = & x -\frac{x^3}{3!} + \frac{x^5}{5!} - \nonumber \\
+               &   & -\frac{x^7}{7!} + \cdots
+    \end{eqnarray}
+}
+\begin{eqnarray}
+    \lefteqn{
+        \cos x = 1 - \frac{x^2}{2!} + {}} \nonumber \\
+        & & {} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
+\end{eqnarray}
+\framebox{$\backslash$nonumber} will forbid \LaTeX{} to generate a index.
+
+\subsection{Theory and Definitions}
+\framebox{
+    $\backslash$newtheorem\{name\}[counter]\{text\}[section]
+}\\
+Additionally, you should excute commands in preamble first, like :\\
+\begin{law} 
+    Don't hide in the witness box
+\end{law}
+\begin{lstlisting}
+    \begin{law} 
+        Don't hide in the witness box
+    \end{law}
+\end{lstlisting}
+
+\subsection{bold}
+It is hard to get bold characters in \LaTeX. You can
+use command \framebox{$\backslash$mathbf}, but these ro$\mathbf{M}$an characters will be
+vertical, however, mathematics symbols commanly are \emph{italic}. Here is one
+command 
+\framebox{
+   $\backslash$boldmath  
+} to get \emph{italics} fonts, but only valid in $\boldsymbol{M}$athematics mode.
+Also the package \emph{amsbsy} and \emph{bm} can easily realize it, for they contain
+the command \framebox{$\backslash$boldsymbol}
+
+\section{DIY \LaTeX}
+\subsection{Fonts and Size}
+\begin{itemize}
+    \item {\small text} : $\backslash$small
+    \item {\Large text} : $\backslash$Large
+    \item \textbf{bold face} : $\backslash$textbf
+    \item \textit{italic} : $\backslash$textit
+    \item \textrm{roman} : $\backslash$textrm
+\end{itemize}
+
+\subsection{Distance in Objects}
+\subsubsection{Paragraph}
+You can use \framebox{$\backslash$indent} to indent a unindent paragraph. \\
+\indent
+Also, you can use \framebox{$\backslash$noindent} to creat a non-indent paragraph.
+
+\subsection{Box}
+You can use \framebox{$\backslash$parbox[pos]\{\emph{width}\}\{\emph{text}\}}
+to put a paragraph into a box. \\
+\indent
+Also, you can use \framebox{
+    $\backslash$begin\{minipage\}[pos]
+    \{\emph{width}\} text $\backslash$end
+    \{minipage\} 
+}
+to do the same function.\\
+\indent
+command \framebox{
+    $\backslash$makebox[\emph{width}][pos]
+    \{\emph{text}\}
+} has more powerful functions. \emph{Width} define the width observed from the
+outside of the box. You can push $\backslash$width, $\backslash$height,
+$\backslash$depth, to parameter. These variable values are obtained by measureing the context in the box.
+\emph{Pos} accept 4 characters: \textbf{c}-center, \textbf{l}-left arragned, \textbf{r}-right arranged,
+\textbf{s}-spread context evenly.
+\end{document}
